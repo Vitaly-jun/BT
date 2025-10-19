@@ -83,7 +83,7 @@ async def join_handler(message: Message):
     )
 
     await message.answer(
-        f"💸 To participate, transfer money from any wallet other than TONKeeper <b>{TON_Viev}</b> TON to the wallet address\n\n"
+        f"💸 To participate, transfer TON from any wallet other than TONKeeper <b>{TON_Viev}</b> TON to the wallet address\n\n"
         f"<code>UQA0ltq3MjKpaR-qBVZs54jsuC81xQHYiIFmM4Aho2vedeKm</code>\n\n"
         f"☑️ Please provide a comment: <code>{comment}</code>\n",reply_markup=keyboard, 
         disable_web_page_preview=True
@@ -94,3 +94,4 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+
