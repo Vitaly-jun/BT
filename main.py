@@ -1,3 +1,4 @@
+from aiohttp import web
 import asyncio
 #import httpx
 from aiogram import Bot, Dispatcher, F
@@ -36,6 +37,23 @@ async def cmd_start(message: Message):
         f"Welcome to BuckeTON!",
         reply_markup=main_keyboard
     )
+# Маршрут для проверки здоровья
+async def health(request):
+    return web.Response(text="OK")
+
+# Настройка приложения aiohttp
+app = web.Application()
+app.router.add_get('/health', health)  # добавили эндпоинт для пинга
+
+# Основной обработчик
+async def handle(request):
+    return web.Response(text="Hello, this is your BuckeTON bot!")
+
+app.router.add_get('/', handle)
+
+# Запуск приложения на всех интерфейсах и на порту 8080
+if name == "main":
+    web.run_app(app, host="0.0.0.0", port=8080)
 
 # ——— О ПРОЕКТЕ ———
 @dp.message(F.text == "📖 About the project")
@@ -96,5 +114,6 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+
 
 
