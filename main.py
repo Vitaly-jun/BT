@@ -42,7 +42,9 @@ async def about_handler(message: Message):
     await message.answer(
         "💎 Welcome to the world of the unique BuckeTON project!\n"
         "📢 Join our official channel for updates and results:\n"
-        "<a href='https://t.me/bucketon11'>@BuckeTON_Channel</a>",
+        "<a href='https://t.me/bucketon11'>@BuckeTON_Channel</a>"
+        "✉️ You can also ask questions about the project and propose cooperation at bucketon.project@gmail.com\n",
+        
         disable_web_page_preview=True
     )
 
@@ -59,8 +61,10 @@ async def webapp_handler(message: Message):
 # ——— ПРИНЯТЬ УЧАСТИЕ ———
 @dp.message(F.text == "🟢 Take part")
 async def join_handler(message: Message):
-    user_id = str(message.from_user.id)
-    comment = f"bucketon_user_{user_id}"
+    user = message.from_user
+    user_id = str(user.id)
+    username = user.username or "no_username"
+    comment = f"bucketon_user_{user_id}_{username}"
     pending_payments[user_id] = comment
 
     ton_link = (
@@ -107,6 +111,7 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+
 
 
 
