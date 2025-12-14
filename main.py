@@ -42,7 +42,7 @@ async def about_handler(message: Message):
     await message.answer(
         "💎 Welcome to the world of the unique BuckeTON project!\n"
         "📢 Join our official channel for updates and results:\n"
-        "<a href='https://t.me/bucketon11'>@BuckeTON_Channel</a>"
+        "<a href='https://t.me/bucketon11'>@BuckeTON_Channel</a>\n"
         "✉️ You can also ask questions about the project and propose cooperation at\n"
         f"<code>bucketon.project@gmail.com</code>\n",
         
@@ -112,6 +112,7 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+
 
 
 
